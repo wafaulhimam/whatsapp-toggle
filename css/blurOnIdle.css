@@ -1,0 +1,24 @@
+/*
+ * Privacy Blur for WhatsApp Web - "Blur WhatsApp on Idle"
+ *
+ * A full-viewport overlay with backdrop-filter, rather than a filter on the app
+ * root. Filtering an ancestor would create a containing block and break the
+ * fixed-position panels WhatsApp uses; a backdrop overlay leaves layout alone.
+ *
+ * The overlay element (#pfwa-idle-overlay) is created by the content script, and
+ * the .pfwa-idle class is toggled on <html> by the idle timer.
+ */
+
+#pfwa-idle-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 2147483646;
+  pointer-events: none;
+  backdrop-filter: blur(var(--pfwa-idle-blur, 24px)) grayscale(1);
+  -webkit-backdrop-filter: blur(var(--pfwa-idle-blur, 24px)) grayscale(1);
+}
+
+html.pfwa-idle #pfwa-idle-overlay {
+  display: block;
+}

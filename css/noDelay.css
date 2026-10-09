@@ -1,0 +1,16 @@
+/*
+ * Privacy Blur for WhatsApp Web - "No transition delay"
+ *
+ * The reveal delay is a single custom property that every other stylesheet reads
+ * through var(--pfwa-delay). Overriding that one variable is enough to remove
+ * the delay everywhere, which is why this file is three lines instead of a copy
+ * of every hover selector in the extension.
+ *
+ * The doubled :root selector raises specificity above the plain :root block the
+ * content script writes, so this wins regardless of which stylesheet the browser
+ * happens to apply last.
+ */
+
+:root:root {
+  --pfwa-delay: 0s;
+}

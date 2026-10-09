@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Privacy Blur for WhatsApp Web</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="header">
+    <img class="logo" src="../images/icon48.png" alt="" width="34" height="34">
+    <h1 class="title">Privacy Blur<br>for WhatsApp Web</h1>
+    <span id="status" class="status" role="img" aria-label="Blur is on"></span>
+  </header>
+
+  <main class="body">
+    <div class="row master">
+      <span class="row-label">Toggle</span>
+      <div class="controls">
+        <label class="switch">
+          <input type="checkbox" id="master" aria-label="Toggle all blur">
+          <span class="track"><span class="knob"></span></span>
+        </label>
+      </div>
+    </div>
+
+    <div class="section-label">Settings</div>
+
+    <div id="feature-rows"></div>
+  </main>
+
+  <footer class="footer">
+    <span class="footer-left">
+      <span id="version"></span>
+      <span class="credit">Made by @wafaulh</span>
+    </span>
+    <span class="footer-hint">Alt+X toggles</span>
+  </footer>
+
+  <script src="../shared/settings.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

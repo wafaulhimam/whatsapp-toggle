@@ -1,0 +1,10 @@
+{
+  "extensionName": {
+    "message": "Privacy Blur for WhatsApp Web",
+    "description": "Extension name shown in the Chrome toolbar and on chrome://extensions."
+  },
+  "extensionDescription": {
+    "message": "Blurs messages, media, names and profile pictures on WhatsApp Web until you hover over them.",
+    "description": "Short description shown on chrome://extensions."
+  }
+}

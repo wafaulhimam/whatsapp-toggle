@@ -1,0 +1,73 @@
+/*
+ * Privacy Blur for WhatsApp Web - "Group/Users names"
+ *
+ * Selector list derived from MIT-licensed work - see NOTICE.md.
+ *
+ * Verified against WhatsApp Web 2.3000.x (2026-10).
+ *
+ * Covers contact and group names in the chat list, the chat header, the contact
+ * details panel, the new-chat picker, contact attachment cards, the author label
+ * on group messages and the starred-message list.
+ *
+ * Several of these are build-generated class names. This is the largest selector
+ * list in the extension and therefore the one most likely to need attention
+ * after a WhatsApp update - if names stop being hidden, re-check here first.
+ */
+
+div[role="gridcell"] div.x14ug900.x78zum5.x1iyjqo2.x1jchvi3.xdod15v.x6ikm8r.x10wlt62.x1mzt3pk.x1yc453h.xo1l8bm:not(.x1gslohp),
+div[role="button"][class=""] ._ak8q:has(*),
+div[role="dialog"] ._ak8q,
+div[role="dialog"] div.copyable-text,
+div[role="gridcell"] div.x14ug900.x78zum5.x1iyjqo2.x1jchvi3.xdod15v.x6ikm8r.x10wlt62.x1mzt3pk.x1yc453h.xo1l8bm.x1gslohp > span[title],
+div.x6s0dn4.xhslqc4.x78zum5.x1f6kntn.xd4r4e8.x1gslohp.xvrgn94.x1yc453h > span,
+div[data-testid="group-info-community-section"] div.x1c4vz4f.xs83m0k.xdl72j9.x1g77sc7.xeuugli.x2lwn1j.xozqiw3.x1oa3qoh.x12fk4p8.x6ikm8r.x10wlt62.xuxw1ft.xlyipyv.x9f619.xggjnk3,
+div[role="button"].x78zum5.xdt5ytf.x1iyjqo2.xl56j7k.xeuugli > div:nth-child(1),
+div[role="button"].x78zum5.xdt5ytf.x1iyjqo2.xl56j7k.xeuugli > div:nth-child(2),
+div:has(> span[data-testid="author"]),
+div.x12lumcd.x6ikm8r.x10wlt62,
+div.xs83m0k.x1iyjqo2.xdl72j9.x18wx58x.x6ikm8r.x10wlt62,
+div.overlay ._ak8q,
+div.x1c4vz4f.xs83m0k.xdl72j9.x1g77sc7.x78zum5.xozqiw3.x1oa3qoh.x12fk4p8.xeuugli.x2lwn1j.x1nhvcw1.xdt5ytf.x6s0dn4 > div[class=""] > span,
+div:has(> span[data-testid="group-info-drawer-subject-input-read-only selectable-text"]),
+div.x1c4vz4f.xs83m0k.xdl72j9.x1g77sc7.x78zum5.xozqiw3.x1oa3qoh.x12fk4p8.xeuugli.x2lwn1j.x1nhvcw1.xdt5ytf.x6s0dn4 > div.x1evy7pa.x1anpbxc > span,
+div.x1evy7pa.x1kgmq87.x2b8uid,
+div.xlm9qay.x1s688f.x1e56ztr,
+div.xlm9qay.x1s688f.x1e56ztr + div,
+div.x2b8uid > .xzueoph + div,
+div.xkhd6sd:not([role]) > ._ajxu > div,
+div.xkhd6sd._ajxt > ._ajxu > div,
+div._ak1d > div:first-child > div:first-child > :not(:first-child) {
+  filter: blur(var(--pfwa-nm-blur, 8px)) grayscale(var(--pfwa-gray, 1));
+  transition: filter 0.08s ease 0s;
+}
+
+div[role="gridcell"] div.x14ug900.x78zum5.x1iyjqo2.x1jchvi3.xdod15v.x6ikm8r.x10wlt62.x1mzt3pk.x1yc453h.xo1l8bm:not(.x1gslohp):hover,
+div[role="button"][class=""] ._ak8q:has(*):hover,
+div[role="dialog"] ._ak8q:hover,
+div[role="dialog"] div.copyable-text:hover,
+div[role="gridcell"] div.x14ug900.x78zum5.x1iyjqo2.x1jchvi3.xdod15v.x6ikm8r.x10wlt62.x1mzt3pk.x1yc453h.xo1l8bm.x1gslohp > span[title]:hover,
+div.x6s0dn4.xhslqc4.x78zum5.x1f6kntn.xd4r4e8.x1gslohp.xvrgn94.x1yc453h > span:hover,
+div[data-testid="group-info-community-section"] div.x1c4vz4f.xs83m0k.xdl72j9.x1g77sc7.xeuugli.x2lwn1j.xozqiw3.x1oa3qoh.x12fk4p8.x6ikm8r.x10wlt62.xuxw1ft.xlyipyv.x9f619.xggjnk3:hover,
+div[role="button"].x78zum5.xdt5ytf.x1iyjqo2.xl56j7k.xeuugli > div:nth-child(1):hover,
+div[role="button"].x78zum5.xdt5ytf.x1iyjqo2.xl56j7k.xeuugli > div:nth-child(2):hover,
+div:has(> span[data-testid="author"]):hover,
+div.x12lumcd.x6ikm8r.x10wlt62:hover,
+div.xs83m0k.x1iyjqo2.xdl72j9.x18wx58x.x6ikm8r.x10wlt62:hover,
+div.overlay ._ak8q:hover,
+div.x1c4vz4f.xs83m0k.xdl72j9.x1g77sc7.x78zum5.xozqiw3.x1oa3qoh.x12fk4p8.xeuugli.x2lwn1j.x1nhvcw1.xdt5ytf.x6s0dn4 > div[class=""] > span:hover,
+div:has(> span[data-testid="group-info-drawer-subject-input-read-only selectable-text"]):hover,
+div.x1c4vz4f.xs83m0k.xdl72j9.x1g77sc7.x78zum5.xozqiw3.x1oa3qoh.x12fk4p8.xeuugli.x2lwn1j.x1nhvcw1.xdt5ytf.x6s0dn4 > div.x1evy7pa.x1anpbxc > span:hover,
+div.x1evy7pa.x1kgmq87.x2b8uid:hover,
+div.xlm9qay.x1s688f.x1e56ztr:hover,
+div.xlm9qay.x1s688f.x1e56ztr + div:hover,
+div.x2b8uid > .xzueoph + div:hover,
+div.xkhd6sd:not([role]) > ._ajxu > div:hover,
+div.xkhd6sd._ajxt > ._ajxu > div:hover,
+div._ak1d > div:first-child > div:first-child > :not(:first-child):hover {
+  filter: blur(0) grayscale(0);
+  transition: filter 0.15s ease var(--pfwa-delay, 0.1s);
+}
+
+div._ak1d > div:first-child > div:first-child {
+  overflow: visible;
+}

@@ -1,0 +1,23 @@
+/*
+ * Privacy Blur for WhatsApp Web - "Text input"
+ *
+ * Verified against WhatsApp Web 2.3000.x (2026-10).
+ *
+ * Blurring the composer would make it unusable, so this dims the text instead -
+ * legible enough to keep typing, not legible to someone reading over your
+ * shoulder.
+ *
+ * The two values are custom properties (rather than being written inline) so the
+ * "Unblur all on app hover" stylesheet can neutralise them from a single place
+ * without needing its own copy of this selector.
+ */
+
+div.lexical-rich-text-input {
+  filter: grayscale(var(--pfwa-ti-gray, 1)) opacity(var(--pfwa-ti-opacity, 0.25));
+  transition: filter 0.08s ease 0s;
+}
+
+div.lexical-rich-text-input:hover {
+  filter: grayscale(0) opacity(1);
+  transition: filter 0.15s ease var(--pfwa-delay, 0.1s);
+}

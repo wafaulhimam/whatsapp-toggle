@@ -1,0 +1,70 @@
+/*
+ * Privacy Blur for WhatsApp Web - "Profile pictures"
+ *
+ * Selector list derived from MIT-licensed work - see NOTICE.md.
+ *
+ * Verified against WhatsApp Web 2.3000.x (2026-10).
+ *
+ * Three size tiers share one user setting: the large avatars in the details
+ * panel and media overlay get a stronger blur because there is more picture to
+ * hide, and the tiny avatars in the starred-message list get a weaker one so
+ * they do not turn into an unreadable smudge.
+ */
+
+div.x78zum5 > div.x6s0dn4.x78zum5.x1c4vz4f.x2lah0s.x1y332i5.x18d9i69.xexx8yu.xbmws1g > div,
+div.x6s0dn4.x78zum5.x1c4vz4f.x2lah0s.x18d9i69.xexx8yu > div,
+div[role="dialog"] ._ak8h,
+header div[role="button"]:first-child div.x1n2onr6.x16ye13r.x5lhr3w,
+header .html-span .html-div > div.x1n2onr6.x16ye13r.x5lhr3w,
+div[data-testid="group-info-community-section"] div.x1n2onr6.x16ye13r.x5lhr3w,
+div.x16ye13r.x10l6tqk.x1wnpwf8.x1vjfegm div[role="button"],
+div.x1okw0bk.x1g6eq07 div.x1n2onr6.x1c9tyrk.xeusxvb.x1pahc9y.x1ertn4p,
+div.x2lah0s.x1c4vz4f.xdl72j9.x1g6eq07,
+div.x1n2onr6.x1c4vz4f.x2lah0s.xdl72j9.x19991ni.x13dflua.xz4gly6.x67bb7w.x1hc1fzr,
+div.overlay ._ak8h {
+  filter: blur(var(--pfwa-pp-blur, 8px)) grayscale(var(--pfwa-gray, 1));
+  transition: filter 0.08s ease 0s;
+}
+
+div.x78zum5.xl56j7k.xyorhqc > span > div[role="button"],
+div.x1y9zq84.xt9xd2u.x3tsejo.x1ahzpo1.xvs2etk.xg3wpu6.x1jwbhkm.xgg4q86.x1kr8tdy.xburx9h.xqm4iv.x8u93l6,
+div.xiqx3za.x1o0tod.x6ikm8r.x10wlt62.x10l6tqk.x13vifvy.xh8yej3.x1knukwh.xihgre1,
+div.x15e7hw7,
+div.x1n2onr6.x2pejg6.x1nbnut7.xvc5jky.x11t971q,
+div.overlay div.xh8yej3.x5yr21d.x6ikm8r.x10wlt62.xiy17q3.x1lvsgvq.x1tbiz1a.xyyilfv {
+  filter: blur(calc(var(--pfwa-pp-blur, 8px) * 2)) grayscale(var(--pfwa-gray, 1));
+  transition: filter 0.08s ease 0s;
+}
+
+div.x1okw0bk.xbelrpt > div.x1n2onr6.x1c9tyrk.xeusxvb.x1pahc9y.x1ertn4p {
+  filter: blur(calc(var(--pfwa-pp-blur, 8px) * 0.6)) grayscale(var(--pfwa-gray, 1));
+  transition: filter 0.08s ease 0s;
+}
+
+div.x78zum5 > div.x6s0dn4.x78zum5.x1c4vz4f.x2lah0s.x1y332i5.x18d9i69.xexx8yu.xbmws1g > div:hover,
+div.x6s0dn4.x78zum5.x1c4vz4f.x2lah0s.x18d9i69.xexx8yu > div:hover,
+div[role="dialog"] ._ak8h:hover,
+header div[role="button"]:first-child div.x1n2onr6.x16ye13r.x5lhr3w:hover,
+header .html-span .html-div > div.x1n2onr6.x16ye13r.x5lhr3w:hover,
+div[data-testid="group-info-community-section"] div.x1n2onr6.x16ye13r.x5lhr3w:hover,
+div.x16ye13r.x10l6tqk.x1wnpwf8.x1vjfegm div[role="button"]:hover,
+div.x1okw0bk.x1g6eq07 div.x1n2onr6.x1c9tyrk.xeusxvb.x1pahc9y.x1ertn4p:hover,
+div.x2lah0s.x1c4vz4f.xdl72j9.x1g6eq07:hover,
+div.x1n2onr6.x1c4vz4f.x2lah0s.xdl72j9.x19991ni.x13dflua.xz4gly6.x67bb7w.x1hc1fzr:hover,
+div.overlay ._ak8h:hover,
+div.x78zum5.xl56j7k.xyorhqc > span > div[role="button"]:hover,
+div.x1y9zq84.xt9xd2u.x3tsejo.x1ahzpo1.xvs2etk.xg3wpu6.x1jwbhkm.xgg4q86.x1kr8tdy.xburx9h.xqm4iv.x8u93l6:hover,
+div.xiqx3za.x1o0tod.x6ikm8r.x10wlt62.x10l6tqk.x13vifvy.xh8yej3.x1knukwh.xihgre1:hover,
+div.x15e7hw7:hover,
+div.x1n2onr6.x2pejg6.x1nbnut7.xvc5jky.x11t971q:hover,
+div.overlay div.xh8yej3.x5yr21d.x6ikm8r.x10wlt62.xiy17q3.x1lvsgvq.x1tbiz1a.xyyilfv:hover,
+div.x1okw0bk.xbelrpt > div.x1n2onr6.x1c9tyrk.xeusxvb.x1pahc9y.x1ertn4p:hover {
+  filter: blur(0) grayscale(0);
+  transition: filter 0.15s ease var(--pfwa-delay, 0.1s);
+}
+
+/* Avatars live in clipped circular containers; without this the blur is cut off
+ * at the circle's bounding box. */
+div._ak1d > div:first-child > div:first-child {
+  overflow: visible;
+}

@@ -1,0 +1,74 @@
+/*
+ * Privacy Blur for WhatsApp Web - "Media preview"
+ *
+ * Selector list derived from MIT-licensed work - see NOTICE.md.
+ *
+ * Verified against WhatsApp Web 2.3000.x (2026-10).
+ *
+ * Blurs images, video, stickers, documents, voice notes, link previews and
+ * contact attachments wherever they appear - in the chat panel, in quoted
+ * replies, in the media send preview and in contact attachment cards.
+ *
+ * Most of these hooks are generated class names. The :not() exclusion lists
+ * exist to keep the rule off icon-only buttons that happen to share the same
+ * role="button" shape, so do not trim them without re-testing.
+ */
+
+div[data-testid="msg-container"]:not(:has([data-testid="quoted-message"])) :is(div, button)[role="button"][class]:not(.x13yyeie, .x1dxgm4b, .x7fhd9j, ._ak3u, ._aju3, [data-js-context-icon], .x1a06ls3, .x6ikm8r.x10wlt62.xlyipyv, .x1bvqhpb.x12lo8hy, .xo1mcw5.x1xlr1w8, ._ahy-, :has(span.xhslqc4)),
+div[data-testid="msg-container"] div.x1okw0bk.x1g6eq07 div.x1n2onr6.x1c9tyrk.xeusxvb.x1pahc9y.x1ertn4p,
+div[data-testid="msg-container"] div.x2lah0s.x1c4vz4f.xdl72j9.x1g6eq07,
+div[data-testid="msg-container"] div.x12lumcd.x6ikm8r.x10wlt62,
+div[data-testid="msg-container"] div.xs83m0k.x1iyjqo2.xdl72j9.x18wx58x.x6ikm8r.x10wlt62,
+[data-testid="quoted-message"]:has([style^="background-image"], img:not(.emoji):not(._aju3), span[data-testid="sticker-container"]),
+[data-testid="quoted-message"] [data-testid="chat-msg-symbol"],
+[data-testid="quoted-message"] [data-testid="chat-msg-symbol"] + span,
+div.x78zum5.x6s0dn4.x15zctf7.x1xegmmw.xdwrcjd,
+[data-testid="quoted-message"] [data-testid="msgImage"],
+[data-testid="link-preview-container"] > img:not(.emoji):not(._aju3),
+[data-testid="link-preview-container"] > div > img:not(.emoji):not(._aju3),
+[data-testid="msg-container"] div > button:has(> img),
+div._ak15 > ._ahwq,
+span[data-testid="sticker-container"]:has(> [role="button"], > button),
+div.xz9dduz > div:first-child,
+[data-testid="media-editor-canvas"],
+[role="list"] div.x6ikm8r.x10wlt62.x1280gxy,
+div.x78zum5.x1iyjqo2.xs83m0k.x1r8uery.xdt5ytf.x6s0dn4 > span {
+  filter: blur(var(--pfwa-mdp-blur, 20px)) grayscale(var(--pfwa-gray, 1));
+  transition: filter 0.08s ease 0s;
+}
+
+div[data-testid="msg-container"]:hover :is(div, button)[role="button"][class]:not(.x13yyeie, .x1dxgm4b, .x7fhd9j, ._ak3u, ._aju3, [data-js-context-icon], .x1a06ls3, .x6ikm8r.x10wlt62.xlyipyv),
+[data-testid="quoted-message"]:has([style^="background-image"], img:not(.emoji):not(._aju3), span[data-testid="sticker-container"]):hover,
+[data-testid="quoted-message"]:hover [data-testid="chat-msg-symbol"],
+[data-testid="quoted-message"]:hover [data-testid="chat-msg-symbol"] + span,
+div[data-testid="msg-container"]:hover div.x1okw0bk.x1g6eq07 div.x1n2onr6.x1c9tyrk.xeusxvb.x1pahc9y.x1ertn4p,
+div[data-testid="msg-container"]:hover div.x2lah0s.x1c4vz4f.xdl72j9.x1g6eq07,
+div[data-testid="msg-container"]:hover div.x12lumcd.x6ikm8r.x10wlt62,
+div[data-testid="msg-container"]:hover div.xs83m0k.x1iyjqo2.xdl72j9.x18wx58x.x6ikm8r.x10wlt62,
+div.x78zum5.x6s0dn4.x15zctf7.x1xegmmw.xdwrcjd:hover,
+[data-testid="quoted-message"] [data-testid="msgImage"]:hover,
+[data-testid="link-preview-container"] > img:not(.emoji):not(._aju3):hover,
+[data-testid="link-preview-container"] > div > img:not(.emoji):not(._aju3):hover,
+[data-testid="msg-container"] div > button:has(> img):hover,
+div._ak15 > ._ahwq:hover,
+span[data-testid="sticker-container"]:has(> [role="button"], > button):hover,
+div.xz9dduz > div:first-child:hover,
+[data-testid="media-editor-canvas"]:hover,
+[role="list"]:hover div.x6ikm8r.x10wlt62.x1280gxy,
+div.x78zum5.x1iyjqo2.xs83m0k.x1r8uery.xdt5ytf.x6s0dn4 > span:hover {
+  filter: blur(0) grayscale(0);
+  transition: filter 0.15s ease var(--pfwa-delay, 0.1s);
+}
+
+/* Opaque backdrop for transparent stickers while they are hidden. */
+span._ajxd._ajxk ._ajxj._ajxd {
+  background-color: var(--incoming-background) !important;
+  border-radius: 7.5px !important;
+  box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.13) !important;
+}
+
+span[data-testid="sticker-container"]:has(> [role="button"], > button):hover ._ajxj._ajxd {
+  background-color: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}

@@ -1,0 +1,30 @@
+/*
+ * Privacy Blur for WhatsApp Web - "Media gallery"
+ *
+ * Selector list derived from MIT-licensed work - see NOTICE.md.
+ *
+ * Verified against WhatsApp Web 2.3000.x (2026-10).
+ *
+ * Blurs the thumbnail strip while viewing an image or video, plus the thumbs in
+ * the media details panel and the send-media preview tray.
+ */
+
+div.x1n2onr6.x78zum5.x6s0dn4.xl56j7k.xh8yej3.xeuugli.x5yr21d.xdt5ytf > div > div:first-child,
+div.x1conndi,
+div[role="listitem"] button > div[style^="background-image"] {
+  filter: blur(var(--pfwa-mdg-blur, 20px)) grayscale(var(--pfwa-gray, 1));
+  transition: filter 0.08s ease 0s;
+}
+
+div.x1n2onr6.x78zum5.x6s0dn4.xl56j7k.xh8yej3.xeuugli.x5yr21d.xdt5ytf > div > div:first-child:hover,
+div.x1conndi:hover,
+div[role="listitem"] button > div[style^="background-image"]:hover {
+  filter: blur(0) grayscale(0);
+  transition: filter 0.15s ease var(--pfwa-delay, 0.1s);
+}
+
+/* A blurred thumbnail overflows its own box and gets clipped, which looks like
+ * a hard-edged smear. Letting it overflow keeps the blur soft. */
+div[role="dialog"] > .x10wlt62 {
+  overflow: visible;
+}

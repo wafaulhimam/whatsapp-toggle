@@ -1,0 +1,52 @@
+/*
+ * Privacy Blur for WhatsApp Web - "All messages in chat"
+ *
+ * Selector list derived from MIT-licensed work - see NOTICE.md.
+ *
+ * Verified against WhatsApp Web 2.3000.x (2026-10).
+ *
+ * The primary hook is a data-testid. The .message-in/.message-out fallback is
+ * gated on :not(:has(...)) so it is only live when no msg-container exists
+ * anywhere in #main - that guarantees the two rules can never match the same
+ * element, which would apply the blur twice and double its strength.
+ */
+
+div[data-testid="msg-container"],
+#main:not(:has([data-testid="msg-container"])) .message-in,
+#main:not(:has([data-testid="msg-container"])) .message-out {
+  filter: blur(var(--pfwa-ms-blur, 8px)) grayscale(var(--pfwa-gray, 1));
+  transition: filter 0.08s ease 0s;
+}
+
+div[data-testid="msg-container"]:hover,
+#main:not(:has([data-testid="msg-container"])) .message-in:hover,
+#main:not(:has([data-testid="msg-container"])) .message-out:hover {
+  filter: blur(0) grayscale(0);
+  transition: filter 0.15s ease var(--pfwa-delay, 0.1s);
+}
+
+/*
+ * WhatsApp overlays the timestamp on the last line of the bubble. Blur spreads
+ * pixels outward, so without extra room the text can bleed past the timestamp.
+ */
+div[data-testid="msg-container"] > span:first-child ~ div:nth-child(2),
+div[data-testid="msg-container"] > div:first-child {
+  padding-right: 36px !important;
+}
+
+/*
+ * Stickers are transparent PNGs. Blurring transparency just smears the
+ * surroundings, so give the sticker an opaque backdrop while it is hidden and
+ * drop it again on hover.
+ */
+div[data-testid="msg-container"] ._ajxj._ajxd {
+  background-color: var(--incoming-background) !important;
+  border-radius: 7.5px !important;
+  box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.13) !important;
+}
+
+div[data-testid="msg-container"]:hover ._ajxj._ajxd {
+  background-color: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}

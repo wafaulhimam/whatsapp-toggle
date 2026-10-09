@@ -1,0 +1,22 @@
+/*
+ * Privacy Blur for WhatsApp Web - "Last messages preview"
+ *
+ * Selector list derived from MIT-licensed work - see NOTICE.md.
+ *
+ * Verified against WhatsApp Web 2.3000.x (2026-10).
+ *
+ * Targets the one-line snippet in the chat list on the left. Note this is the
+ * most fragile selector in the extension: WhatsApp generates that element's
+ * class list at build time, so it is the first thing to re-verify after an
+ * update.
+ */
+
+div.xjbqb8w.x1iyjqo2.x1f6kntn.x1fc57z9.x6ikm8r.x10wlt62.x1yc453h.xlyipyv.xuxw1ft.xo1l8bm {
+  filter: blur(var(--pfwa-msp-blur, 8px)) grayscale(var(--pfwa-gray, 1));
+  transition: filter 0.08s ease 0s;
+}
+
+div.xjbqb8w.x1iyjqo2.x1f6kntn.x1fc57z9.x6ikm8r.x10wlt62.x1yc453h.xlyipyv.xuxw1ft.xo1l8bm:hover {
+  filter: blur(0) grayscale(0);
+  transition: filter 0.15s ease var(--pfwa-delay, 0.1s);
+}

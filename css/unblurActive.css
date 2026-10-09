@@ -1,0 +1,24 @@
+/*
+ * Privacy Blur for WhatsApp Web - "Unblur all on app hover"
+ *
+ * Every blur in the extension is expressed as a custom property, so instead of
+ * re-listing ~150 hover selectors this file just zeroes the variables on body
+ * while the pointer is over the app. Because custom properties inherit, setting
+ * them on body reaches every descendant, and the per-element transition still
+ * animates the change.
+ *
+ * The text input is dimmed with grayscale/opacity rather than a blur, so it gets
+ * its own two variables here.
+ */
+
+body:hover {
+  --pfwa-ms-blur: 0px;
+  --pfwa-msp-blur: 0px;
+  --pfwa-mdp-blur: 0px;
+  --pfwa-mdg-blur: 0px;
+  --pfwa-pp-blur: 0px;
+  --pfwa-nm-blur: 0px;
+  --pfwa-gray: 0;
+  --pfwa-ti-gray: 0;
+  --pfwa-ti-opacity: 1;
+}
