@@ -14,6 +14,10 @@ behind you.
 
 Current version: **1.0.0** · Chrome 105+
 
+<p align="center">
+  <img src="docs/screenshots/popup.png" width="320" alt="The extension popup: a master toggle, a settings list, and ten per-feature switches">
+</p>
+
 ---
 
 ## Install
@@ -52,6 +56,19 @@ Open `web.whatsapp.com` — the blur is on by default.
 
 ## How to use
 
+<p align="center">
+  <img src="docs/screenshots/blur-before.png" width="49%" alt="WhatsApp Web with the blur switched off">
+  <img src="docs/screenshots/blur-after.png" width="49%" alt="The same layout with every blur feature switched on">
+</p>
+
+<p align="center"><sub>Effect demo on a stand-in page that reproduces WhatsApp Web's markup — not a screenshot of a real account.</sub></p>
+
+<p align="center">
+  <img src="docs/screenshots/blur-hover.png" width="49%" alt="Hovering one message reveals only that message">
+</p>
+
+<p align="center"><sub>Hovering one item reveals it; everything else stays hidden.</sub></p>
+
 | Action | How |
 |---|---|
 | Turn everything on/off | **Toggle** switch at the top of the popup |
@@ -80,6 +97,10 @@ Changes apply **instantly** — no page reload needed.
 
 Every row with a gear stores its own blur radius, so you can blur media hard and
 messages lightly.
+
+<p align="center">
+  <img src="docs/screenshots/popup-advanced.png" width="320" alt="The popup with an advanced settings panel expanded, showing a blur amount input in pixels">
+</p>
 
 ---
 
