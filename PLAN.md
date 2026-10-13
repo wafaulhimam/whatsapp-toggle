@@ -170,6 +170,19 @@ then apply `filter: blur(var(--blur-amount)) grayscale(1)` plus a `:hover` reset
 - Second locale, Firefox manifest variant.
 - Optional: per-feature blur amount overrides.
 
+### Phase 7 — README screenshots (done)
+
+- `tools/screenshots.js` generates every image in `docs/screenshots/`: the popup
+  at 2x from the real popup page (settings pushed through `chrome.storage.sync`,
+  so the popup renders itself normally), plus before/after/hover captures of the
+  blur effect on a stand-in page that reproduces WhatsApp Web's markup.
+- Screenshots live in `docs/`, never in `images/` — the packaging allowlist ships
+  all of `images/` inside the extension ZIP, so a screenshot there would ship to
+  users.
+- The blur captures are a reproduction, not a real account, and the README says so.
+- The Chrome Web Store still needs its own 1280x800 assets; the same tool can be
+  extended for them.
+
 ---
 
 ## 7. Risks and mitigations

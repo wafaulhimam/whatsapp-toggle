@@ -153,6 +153,7 @@ whatsapp-toggle/
 ├── css/                   one stylesheet per feature
 ├── images/                icons
 ├── _locales/en/           English strings
+├── docs/                  README screenshots, planning notes
 └── tools/                 checks, tests, packaging, icon generator
 ```
 
@@ -215,6 +216,24 @@ python3 tools/make_icons.py
 
 Pure Python stdlib, no PIL required.
 
+### Regenerate screenshots
+
+```bash
+NODE_PATH=<path-to>/node_modules node tools/screenshots.js
+```
+
+Writes every image in [`docs/screenshots/`](docs/screenshots/). Requires
+`playwright-core`, same as the e2e harness.
+
+The popup images are captured from the real popup page at 2x, with the settings
+pushed through `chrome.storage.sync` so the popup renders itself normally. The
+blur images are captured from a stand-in page that reproduces WhatsApp Web's
+markup — the blur is applied by the real stylesheets, but it is not a screenshot
+of a real account, which is why the README labels it as a demo.
+
+Keep these out of `images/`: the packaging allowlist ships all of `images/`
+inside the extension ZIP.
+
 ---
 
 ## Roadmap
@@ -223,7 +242,10 @@ Pure Python stdlib, no PIL required.
       `chrome.*` APIs that Firefox also provides, but nothing has been tested
       there
 - [ ] Locales beyond English
-- [ ] Chrome Web Store listing (screenshots, privacy policy, copy)
+- [ ] Chrome Web Store listing (privacy policy, listing copy, and its own
+      1280x800 screenshots — the README images come from
+      [`tools/screenshots.js`](tools/screenshots.js), which can be extended for
+      those)
 
 ---
 
